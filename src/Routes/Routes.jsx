@@ -4,14 +4,19 @@ import HomePage from "../Pages/HomePage/HomePage";
 import AuthLayout from "../Layout/AuthLayout";
 import SignIn from "../Pages/Auth/SignIn/SignIn";
 import SignUp from "../Pages/Auth/SignUp/SignUp";
+import Profile from "../Pages/Profile/Profile";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <HomePage />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },

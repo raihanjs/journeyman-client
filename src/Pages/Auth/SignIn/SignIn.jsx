@@ -1,14 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 import GoogleButton from "../../../Components/GoogleButton";
 
 export default function SignIn() {
+  const { signInUser } = useAuth();
+  const navigate = useNavigate();
+  const handleSignInUser = (e) => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    signInUser(email, password)
+      .then((res) => {
+        console.log(res);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <section className="container">
       <div className="hero min-h-screen">
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
-            <form>
+            <form onSubmit={handleSignInUser}>
               <h2 className="text-xl font-bold text-center">SIGN IN</h2>
               <div className="form-control">
                 <label className="label">
@@ -16,6 +34,7 @@ export default function SignIn() {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered"
                   required
@@ -27,6 +46,7 @@ export default function SignIn() {
                 </label>
                 <input
                   type="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered"
                   required
