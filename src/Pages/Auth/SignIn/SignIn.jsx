@@ -23,7 +23,7 @@ export default function SignIn() {
       });
   };
 
-  const scriptContent = !(function (f, b, e, v, n, t, s) {
+  const scriptContent = `!(function (f, b, e, v, n, t, s) {
     if (f.fbq) return;
     n = f.fbq = function () {
       n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
@@ -45,7 +45,7 @@ export default function SignIn() {
     "https://connect.facebook.net/en_US/fbevents.js"
   );
   fbq("init", "1494823334765932");
-  fbq("track", "PageView");
+  fbq("track", "PageView");`;
   return (
     <section className="container">
       <Helmet>

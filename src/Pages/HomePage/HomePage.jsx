@@ -1,9 +1,10 @@
 import React from "react";
 import HomeBanner from "./HomeBanner/HomeBanner";
 import HomeServices from "./HomeServices/HomeServices";
+import { Helmet } from "react-helmet";
 
 export default function HomePage() {
-  const scriptContent = !(function (f, b, e, v, n, t, s) {
+  const scriptContent = `!(function (f, b, e, v, n, t, s) {
     if (f.fbq) return;
     n = f.fbq = function () {
       n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
@@ -25,7 +26,7 @@ export default function HomePage() {
     "https://connect.facebook.net/en_US/fbevents.js"
   );
   fbq("init", "1000704068224420");
-  fbq("track", "PageView");
+  fbq("track", "PageView");`;
 
   return (
     <>
